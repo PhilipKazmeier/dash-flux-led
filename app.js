@@ -25,11 +25,12 @@ led_stripe.connect(() => {
 
 dash.on("detected", function (){
 	led_stripe.refreshState(() => {
-		if (led_stripe.isOn)
+		if (led_stripe.isOn) {
 			led_stripe.turnOff();
 			console.log('Turning off')
-		else
+		} else {
 			led_stripe.turnOn();
 			console.log('Turning on')
+		}
 	})
 });
