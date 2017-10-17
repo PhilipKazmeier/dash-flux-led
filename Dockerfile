@@ -1,15 +1,15 @@
-FROM hypriot/rpi-node:latest
+FROM node:alpine
 
 WORKDIR /home/app
 
-# Install dependencies
-RUN apt-get update \
-	&& apt-get install libpcap-dev \
-	&& rm -rf /var/lib/apt/lists/*
-
-# Install all required npm packages
 COPY package.json .
-RUN npm install
+
+# Install dependencies
+RUN apk --update --no-cache add libpcap-dev python \
+	&& apk --update --no-cache --virtual build-dependencies add git make g++ \
+	&& npm install \
+	&& apk del build-dependencies \
+	&& rm -rf /var/cache/apk/* 
 
 # Run app.js on startup of the container
 COPY app.js .
