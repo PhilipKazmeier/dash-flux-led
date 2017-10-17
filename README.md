@@ -16,6 +16,25 @@ The Docker container needs some environment variables to work.
 
 
 ### Optional:
-- `TIMEOUT` defines the	timeout between dash button presses (default 5000)
+- `TIMEOUT` defines the	timeout between dash button presses (default 10000)
 - `PROTOCOL` defines the protocol used by the dash button (default 'udp')
 - `INTERFACE` defines the	interface the program should listen for the dash button
+
+
+## Usage
+
+```
+docker run --net host \
+  -e MAC_ADDRESS=00:00:00:00:00:00 \
+  -e IP_ADDRESS=192.168.0.2 \
+  --restart=always \
+  philipkazmeier/dash-flux-led:latest
+```
+
+
+## Docker Tags 
+`latest` contains the latest version
+
+`arm` is for all ARM based devices like a Raspberry Pi
+
+

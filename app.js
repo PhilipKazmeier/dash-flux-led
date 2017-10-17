@@ -6,7 +6,7 @@ const flux_led_bulb = require('flux-led').Bulb
 // Parse environment variables
 mac_address = process.env.MAC_ADDRESS || null;
 led_ip = process.env.IP_ADDRESS || null;
-timeout = process.env.TIMEOUT || 5000;
+timeout = process.env.TIMEOUT || 10000;
 interf = process.env.INTERFACE || null;
 proto = process.env.PROTOCOL || 'udp';
 
@@ -20,16 +20,16 @@ var dash = dash_button(mac_address, interf, timeout, proto);
 var led_stripe = new flux_led_bulb(led_ip);
 
 led_stripe.connect(() => {
-	console.log('Connected to the LED stripe');
+	console.log('Connected to the LED Stripe');
 });
 
 dash.on("detected", function (){
-	console.log("omg found");
 	led_stripe.refreshState(() => {
-
 		if (led_stripe.isOn)
 			led_stripe.turnOff();
+			console.log('Turning off')
 		else
 			led_stripe.turnOn();
+			console.log('Turning on')
 	})
 });
