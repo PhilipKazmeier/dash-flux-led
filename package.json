@@ -1,0 +1,24 @@
+{
+  "name": "dash-flux-led",
+  "version": "0.0.1",
+  "description": "Node.js app for controlling a flux_led lamp / LED stripe with an Amazon dash button.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "flux-led": "0.0.3",
+    "node-dash-button": "^0.6.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philipkazmeier/dash-flux-led"
+  },
+  "keywords": [
+    "node",
+    "flux_led",
+    "dasher"
+  ],
+  "author": "Philip Kazmeier",
+  "license": "MIT"
+}
